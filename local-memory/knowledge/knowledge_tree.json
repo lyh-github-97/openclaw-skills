@@ -3,7 +3,7 @@
     "version": "1.0",
     "created": "2026-03-31",
     "last_updated": "2026-04-06",
-    "total_entries": 731
+    "total_entries": 760
   },
   "_categories": {
     "config": {
@@ -32,6 +32,267 @@
     }
   },
   "entries": [
+    {
+      "id": "20260406220001",
+      "timestamp": "2026-04-06T22:00:01.228129",
+      "category": "error",
+      "content": "## 下午知识整理\n- 从探照灯文章中整理了3条知识点入库：\n  1. Freedman「Compression is All You Need」论文核心观点（数学压缩理论）\n  2. SimCells工程菌疗法（一天消灭99.9%超级细菌）\n  3. 战后美国城市重建政策的历史教训\n<!-- consolidated -->",
+      "tags": [],
+      "source": "2026-04-02.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220001",
+      "timestamp": "2026-04-06T22:00:01.181774",
+      "category": "knowledge",
+      "content": "## 技术笔记\n\n### Skills+RAG+Memory融合（高置信）\n- RAGFlow张颖峰：未来所有Agent都是Coding Agent，工具调用=代码生成+RTC沙箱执行\n- Memory核心是个性化和时序性，不是\"知识\"而是\"主观认知更新\"\n- 三者最终融合为面向Agent的数据库底座\n\n### OpenClaw商业化困境（中到高置信）\n- Token成本：ReAct机制导致复杂任务Token消耗极高\n- 安全：Skill市场无审核，AI可能自主行动失控\n- 解法：requireApproval + 沙箱 + 云端部署\n\n### MCP安全风险（高置信，来自Red Hat）\n- 恶意Server更新风险（工具被悄悄篡改）\n- 命令注入/提示词注入\n- 防护：MCP-Scan、沙箱隔离、版本锁定",
+      "tags": [],
+      "source": "2026-04-02.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220001",
+      "timestamp": "2026-04-06T22:00:01.150399",
+      "category": "knowledge",
+      "content": "## 深夜深度研究（01:08执行）\n\n**研究主题**：Skills+RAG+Memory融合趋势、OpenClaw商业化困境、MCP安全风险\n\n**研究过程**：\n1. 读取 atoms_2026Q1.jsonl 最新条目（2026Q1_764，日期2026-04-01）\n2. 从 cnblogs/知乎/B站/腾讯云开发者等来源搜索最新内容\n3. 深度阅读：\n   - cnblogs: Skills出世Prompt已死——OceanBase嘉年华圆桌讨论\n   - 澎湃新闻: 驯化OpenClaw的实践与困境\n   - Red Hat: MCP安全风险与控制措施\n\n**写入知识库（atoms_2026Q1.jsonl）**：\n- 2026Q1_765: Skills+RAG+Memory融合趋势——Coding Agent统一范式\n- 2026Q1_766: OpenClaw商业化三重困境（Token成本+安全风险+自主性vs安全两难）\n- 2026Q1_767: MCP安全风险——恶意Server/命令注入/提示词注入及防护措施",
+      "tags": [],
+      "source": "2026-04-02.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220001",
+      "timestamp": "2026-04-06T22:00:01.115760",
+      "category": "error",
+      "content": "## 23:44 Heartbeat MicroCompact — 今晚重要进展\n\n### Claude Code 源码泄露学习 ✅\n- 来源：2026-03-31 npm source map 泄露，512k 行 TypeScript\n- 整理笔记：memory/claude-code-leak-learnings.md\n- 已落地：HEARTBEAT三层压缩、SOUL.md Skeptical Memory、micro_compact.sh、dream_gate_check.sh、TOOLS.md offloading规范\n- 待落地：soul-reinject hook（已注册启用，等重启生效）\n\n### soul-reinject Hook ✅\n- 目录：~/.openclaw/hooks/soul-reinject/\n- 原理：监听 message:preprocessed，每5条消息注入SOUL.md核心摘要\n- 回退：删hook目录即可，无需改config\n- ⚠️ lark-cli 用户授权可能过期，Skills仪表盘写入失败，改天修复\n\n### fieldtheory X书签同步 ✅\n- CLI安装：v1.2.1，~/.npm-global/bin/ft\n- Skill：~/.openclaw/skills/fieldtheory/\n- Cron：每日08:30自动同步 (id: c880ce9d-75bc-40ad-84c1-6bd38e89ce4d)\n- 前提：需Chrome登录X，ft sync --classify 才有效\n- 当前状态：ft status 显示\"No bookmarks synced yet\"，等待L确认Chrome已登录X\n\n### cron任务修复 ✅\n- catalyst-daily / finance-daily-report / spotlight-daily / knowledge-compile\n- 根因：isolated session里message工具发送失败（⚠️ ✉️ Message failed）\n- 修复：全部改为 announce delivery 模式\n\n### dashboard-check LaunchAgent修复 ✅\n- 根因：LARK用相对路径符号链接，launchd工作目录/导致解析失败\n- 修复：LARK改为 real path\n- 验证：手动跑 zero报错，三个仪表盘全部写入成功\n\n### Gateway重启授权 ✅\n- PID 2005 → 14614，平滑重启，零报错\n<!-- consolidated -->",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220001",
+      "timestamp": "2026-04-06T22:00:01.082053",
+      "category": "error",
+      "content": "## 下午重建（20:50 飞书聊天记录还原）\n\n### 15:24 浏览器冲突教训\n- 我用browser工具操作时抢了L的Chrome（覆盖页面），被纠正\n- 规则：需要L登录状态时用`open -a Chrome --new-window`，不动L的现有浏览器\n\n### 15:34-16:57 xmgx后台申诉处理\n- 小玛出行管理后台：xmgx.aimatech.com\n- 客服中心-申诉处理：532条待处理\n- 15:36 L首次提出需求：头盔费未付款→重置0，已付款→退款\n- 15:52 token耗尽中断\n\n### 17:07 L纠正规则（关键细化）\n- 只处理头盔费用，其他费用保持不变\n- 未付款（操作列有\"重置金额\"）→ 头盔费用填0，其他不变，点\"确认处理\"\n- 已付款（操作列有\"退款\"）→ 头盔费用不变，其他费用填0，点\"确认处理\"\n- 在详情页只操作对应头盔费行的按钮，不点其他地方\n\n### 20:03 token耗尽，L说\"没token了\"\n- 20:24 L说记忆丢了\n\n### xmgx后台处理结果（17:58前）\n- OA382464000128475 ¥99.90退款 ✅\n- OA382467000128483 ¥99.90退款 ✅  \n- OA382200000128485 退款弹窗卡住（React表单input填不进）\n- OA382202000128474 未处理\n- OA382667000128480 未处理\n\n### 根本问题\n- browser tool是独立浏览器实例，L看不到我操作\n- React受控输入填不进（input的value无法通过工具改变）\n- opencli operate Chrome扩展未连接（1Password冲突未解决）\n- xmgx类后台自动化不适合当前browser tool方案\n\n### autocli工具链整合（15:00-17:00）\n- autocli即AutoCLI v0.1.0→v0.2.4（14个版本，50+命令）\n- 新增：jimeng生图命令（不占浏览器）、explore/generate/search等AI功能\n- 国际内容（HN/bilibili）可用，国内平台（知乎/微博）需Chrome扩展\n- ai-generate-web SKILL.md重大更新\n- TOOLS.md opencli-rs章节更新",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220001",
+      "timestamp": "2026-04-06T22:00:01.028243",
+      "category": "error",
+      "content": "## ⚠️ Context损失记录（20:41补充）\n\n### 20:41 Context被压缩，损失12:00-17:00内容\n- 原因：context超过限制被截断，daily文件没有及时写入\n- 损失：下午所有对话内容（约5小时）\n- 教训：每30分钟必须强制保存一次，不能依赖compaction\n\n### 下午重建的关键事件（按时间顺序）\n\n#### 12:00-13:00\n- 飞书图片发送问题根因确认：`message`工具`media=`参数对UUID文件名不稳定\n- Python脚本`send_image_as_*.py × 6`全部创建完成（各agent独立）\n- 写SOUL.md更新为Python脚本方式\n- 浏览器使用规则：需要L登录状态时`open -a Chrome --new-window`，不动L的浏览器\n\n#### 13:00-15:00  \n- autocli项目发现：opencli-rs已更名为AutoCLI\n- opencli-rs升级v0.1.0 → v0.2.4（14个版本，50+命令）\n- TOOLS.md opencli-rs章节更新\n- ai-generate-web SKILL.md重大更新：jimeng生图为首选，doubao降备选\n- 三个仪表盘清理：删除定时检查/空/重复记录\n- 今日重要记录写入成长记录仪表盘（ok=true）\n\n#### 15:00-17:00\n- xmgx.aimatech.com 小玛出行后台\n- 客服中心-申诉处理：532条待处理\n- 头盔费申诉处理规则：\n  - 未付款（操作列有\"重置金额\"）→ 重置头盔费为0，其他不变\n  - 已付款（操作列有\"退款\"）→ 退款头盔费，其他费用填0\n- OA382464000128475 ¥99.90退款 ✅\n- OA382467000128483 ¥99.90退款 ✅\n- OA382200000128485 退款弹窗卡住（React表单，input填不进）\n- 结论：xmgx后台自动化不适合用browser tool（两套浏览器隔离）\n\n### 未解决\n- xmgx申诉处理：React受控输入填不进，opencli operate Chrome扩展未连接（1Password冲突）",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.995521",
+      "category": "knowledge",
+      "content": "## 17:45 Heartbeat 自动保存（77% Context）\n- opencli-rs → autocli v0.2.4 升级完成\n- 6个 agent 发送脚本全部就位\n- 3个仪表盘清理并同步今日记录\n- TOOLS.md 更新完毕\n- 写写 SOUL.md 图片发送规范已更新\n- ai-generate-web SKILL.md 更新（jimeng首选，doubao备选）",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.961694",
+      "category": "error",
+      "content": "## 17:12 补充\n\n### opencli-rs → autocli v0.2.4 升级\n- 原 v0.1.0（3月25日安装），已有13个版本差距\n- 今日升级到 v0.2.4（GitHub最新）\n- 项目已更名为 AutoCLI（opencli-rs 仍可用）\n- 新增50+命令、explore/generate/search 等AI功能\n- 错误处理改善（403处理、User-Agent等）\n- 知乎/微博/小红书仍需Chrome扩展，国内平台暂时无法自动化\n- 更新检查脚本：`~/.openclaw/scripts/opencli_update_check.sh`\n- 升级后 `opencli-rs` 命令指向 autocli 0.2.4\n\n### opencli npm 工具\n- ~/.opencli/ 目录是独立的 npm 版 opencli（非 openclaw 工具）\n- 当前 v0.0.0，GitHub 有 v1.6.2，**和 openclaw 工具无关**，不升级",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.930682",
+      "category": "knowledge",
+      "content": "## 17:09 心跳 Context 保存\n当前 Context 78%（160k/205k），主动保存重要进展",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.893706",
+      "category": "knowledge",
+      "content": "## 16:53 补充\n\n### opencli-rs 工具链整合\n- 生图首选：`opencli-rs jimeng generate`（即梦，不占浏览器，~50秒4张图）\n- 国际内容：hackernews/bilibili/arxiv → opencli-rs 替代 web_search\n- 国内需登录平台（知乎/微博/小红书/雪球）：保持 web_search\n- ai-generate-web SKILL.md 已更新（方式一 jimeng，方式二 doubao ask）\n- TOOLS.md opencli-rs 章节已更新",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.861998",
+      "category": "config",
+      "content": "## 下午补充（16:37 - 压缩前备份）\n\n### 重大进展记录\n1. 飞书图片发送：全agent Python 脚本体系建成（6个agent各自独立，send_image_as_*.py）\n2. openclaw.json 里找到所有agent的APP_SECRET（之前分散在各处没找到）\n3. diary-full LaunchAgent改为每天（含周末）00:10触发\n4. ai-generate-web SKILL.md更新：方式一opencli doubao为主，方式二Chrome自动化为备\n5. 浏览器规则：需L登录状态时用--new-window，不覆盖现有页面\n6. 探照灯/研研不发图片，无需修改SOUL.md\n7. OpenClaw sendMediaFeishu源码分析：扩展名+jpeg/jpg直接走image API，UUID文件名靠magic bytes检测\n\n### 仪表盘记录\n- 成长记录+4条，工作仪表盘+5条，Skills管理+6条（全部成功）\n- 12条\"定时检查\"记录已删除（自动写入被L禁止）\n\n### 待办/未完成\n- 研研的盘前cron是否正常：未验证\n- karpathy wiki知识积累模式落地：未启动\n- tradingagents-CN LLM层配置：等有效API key\n- 仪表盘LaunchAgent（每2小时）：正常运行，今日已触发多次",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.828443",
+      "category": "error",
+      "content": "## ai-generate-web Skill 重大进展（2026-04-05）\n\n### 核心发现\n**豆包 AI 创作页 + 飞书 API = 稳定生图+发图链路**\n\n### 技术路径（已验证成功）\n1. `opencli operate open \"https://www.doubao.com/chat/create-image\"` — 打开 AI 创作页\n2. `opencli operate type 2 \"prompt描述\"` — 输入框 index=2\n3. `opencli operate click 53` — 点击\"图像生成\"按钮\n4. `sleep 25` — 等待生成\n5. `opencli operate eval` 提取 `img[src*=rc_gen_image]` URL\n6. `curl` 下载到本地\n7. **飞书 API 发图**（正确方式）：`python3 send_image_as_*.py <图片路径> <目标open_id>`\n\n### 关键坑\n- ❌ `doubao ask` 方式不稳定（返回\"正在生成\"文字后不等图片就结束）\n- ❌ `message` 工具的 `media` 参数对飞书**不稳定**，只显示文件链接\n- ✅ **正确方式**：Python 脚本调飞书 API → 获取 `image_key` → 发 `msg_type=image` 消息\n\n### Python 发图脚本（各 Agent 专用）\n| Agent | 脚本 | APP_ID |\n|-------|------|--------|\n| 爪巴 | send_image_as_zuoba.py | cli_a9361beb52381bde |\n| 写写 | send_image_as_writer.py | cli_a94fec6a2d385bc8 |\n| 财财 | send_image_as_caicai.py | cli_a934dc5be7389bde |\n| 研研 | send_image_as_research.py | cli_a94b865a79b9dbb7 |\n| 探照灯 | send_image_as_spotlight.py | cli_a948b11aeb395cc9 |\n| 学习搭子 | send_image_as_learner.py | cli_a94893e428395cef |\n\n用法：`python3 send_image_as_<agent>.py <图片路径> ou_8e79daae8f22d612e09f7ffa41e12aae`\n\n### 脚本\n- `~/.openclaw/skills/ai-generate-web/scripts/gen_and_send.sh` — 一键生成+发送\n- `~/.openclaw/skills/ai-generate-web/scripts/gen_image.sh` — 只生成图片\n- `~/.openclaw/skills/ai-generate-web/SKILL.md` — 完整文档\n\n### OpenCLI operate 今天踩的坑\n- `opencli operate open` 后页面 DOM 可能还停留在上一个 tab\n- 解决：先 `opencli operate open \"about:blank\"` 清空，再开目标页\n- 或者：关闭所有 Chrome 窗口后重新打开\n\n### 写写的成长\n- 写写能自主发现问题（SOUL.md 没生效）并提出改进建议\n- 写写自己写了 `send_image_as_writer.py`（正确实现）\n- 写写更新了 SOUL.md 同步到 `gen_and_send.sh` 一键化",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.795953",
+      "category": "error",
+      "content": "## 下午补充（15:36）\n\n### 飞书图片发送问题根因确认\n- `message` 工具的 `media=` 参数对无扩展名 UUID 文件不稳定\n- Doubao 生成的图片在 `media/inbound/` 里是 UUID 文件名（无扩展名）\n- Magic bytes 检测偶发失败，导致走 file API（显示附件）而不是 image API\n- Python 脚本直接调用飞书 API，指定 `image_type=message`，100% 稳定\n- **结论：所有 agent 发图片统一用 Python 脚本（`send_image_as_*.py`）**\n\n### 浏览器使用规则\n- 需要 L 的登录状态：`open -a \"Google Chrome\" --new-window URL`（新窗口，不覆盖）\n- 其他情况：OpenClaw 隔离浏览器\n- 豆包生图：用 `opencli doubao` 网页版，不需要 Chrome\n\n### 已更新\n- 写写 SOUL.md：图片发送改为 Python 脚本方式\n- 探照灯/研研：只发文字，不涉及图片，无需修改",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.759541",
+      "category": "error",
+      "content": "## 下午追加（15:32）\n- **图片发送Bug根因确认**：OpenClaw message工具对无扩展名UUID文件（豆包生成图片默认存为UUID名）content-type检测失败时，回退到file附件而非image消息\n- **Python脚本方案100%稳定**：直接传image_type=message，不依赖文件扩展名\n- **Python脚本清单已全部创建**：zuoba/caicai/research/spotlight/learner/writer 各一个\n- **写写SOUL.md已更新**：配图流程改为Python脚本发送\n- **浏览器规则**：我用opencli doubao网页版，不再用用户Chrome；如需Chrome，用--new-window新开窗口",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.727279",
+      "category": "error",
+      "content": "## 11:30 - ai-generate-web Skill 创建完成\n\n**重大发现：豆包 AI 创作页直接生图可用！**\n- 路径：https://www.doubao.com/chat/create-image\n- opencli operate: type [2] + click [64] 图像生成按钮 → 成功返回4张图\n- 比 `doubao ask` 更可靠（ask 会返回\"正在生成\"文字就结束，不等图片）\n- 图片URL: https://p*-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc_gen_image/...\n\n**Skill 创建：ai-generate-web**\n- 路径：~/.openclaw/skills/ai-generate-web/\n- 豆包 ✅ 已验证可用（AI创作页面路线）\n- 即梦 ⚠️ 需Chrome登录\n- 已同步所有agent、飞书仪表盘、MEMORY.md\n\n**写写图片问题已解决**\n- 写写 session exec 不稳定，doubao ask 超时\n- 修复：写写 SOUL.md 改为通知爪巴生成\n- 火车图已发 L 私聊（145K + 141K jpg）\n\n**Session 找到写写：**\n- key: agent:writer:da90c1ed-4632-4c06-8f09-2f05a652b228",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.684404",
+      "category": "error",
+      "content": "## 11:00-11:13 重要配置修复\n\n### 日记 PATH 问题\n- 问题：diary-full.plist 仅周一至周五触发 → 改为每天\n- 问题：diary_image.py 调用 `node` 但 LaunchAgent 没 PATH → 改 `/usr/local/bin/node`\n- 修复：diary-full.plist 去掉 Weekday 限制，每日 00:10 运行\n\n### 日记补发\n- 2026-04-03（周五）日记：已补发 ✅\n- 2026-04-04（周六）日记：已补发 ✅\n\n### Credential 关系梳理\n| Agent | APP_ID | 目标窗口 | 发送方式 |\n|---|---|---|---|\n| 爪巴 | `cli_a9361beb52381bde` | `vO4NhExGx7nVtq4Nn1hk4cGNJn1sqxn5` | `oc_1b17dd1b6f5e5ab3aeebc25d1140e5a9` | `send_image_as_zuoba.py` |\n| 财财 | `cli_a934dc5be7389bde` | `uumKVuaDwmJqRkRdQReVwctlpJkLmQSX` | `oc_672b6574c3477985a1a517f748d3dd4a` | `send_image_as_caicai.py` |\n| 研研 | `cli_a94b865a79b9dbb7` | `ZBpoT2QFSvbY78FEBJc1Wd5vPeI0TIDg` | `oc_19296660189ad93a04a260f9e928c880` | `send_image_as_research.py` |\n| 探照灯 | `cli_a948b11aeb395cc9` | `SAdLA9dDRHdWznuQHKCMrf51gI2CuAo4` | `oc_62b0d7d187be614f8bdce954e5494358` | `send_image_as_spotlight.py` |\n| 学习搭子 | `cli_a94893e428395cef` | `qNMBg5pHHE5hrJKDRJIa2gOJdK4BKprU` | `ou_19ab0d04bf7426733de8172045ff53ff` | `send_image_as_learner.py` |\n| 写写 | `cli_a94fec6a2d385bc8` | `J7KUQhhj3TocOaEm6FObgcJ2wsDN1F2I` | `ou_ee46528a780a35d08862c4374a261503` | `send_image_as_writer.py` |\n\n- 猫图Bug根因：send_diary_image.js 是财财的hardcoded脚本，爪巴调用会混到财财窗口\n- 修复：每个agent专属Python发送脚本（Python标准库，无依赖，launchd环境正常）\n  - `send_image_as_zuoba.py`：爪巴 → `send_image_as_caicai.py`：财财（已测试✅）\n  - `diary-full.sh` 已更新为调用 `send_image_as_caicai.py`（解决PATH问题）\n  - 探照灯/研研：待补充 AppSecret 后创建\n\n### karpathy LLM Wiki Pattern 学习\n- 核心：wiki是持久积累，不是每次重新发现\n- 三层：raw sources → wiki → schema\n- 试点：TradingAgents-CN 投研场景\n- 关键：跟踪执行，不做花架子",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.637074",
+      "category": "error",
+      "content": "## 10:43 心跳 Context 保护保存\n\n### 当前状态\n- Context: 137k/205k (67%) — 超过60%安全线\n- Gateway: 运行正常 (1进程)\n- 日记: 已修复PATH问题，diary-full.sh已更新为每天触发（含周末）\n- 2026-04-03/04日记已补发\n\n### 今日完成事项\n- 修复diary-full.sh: 加PATH和nvm加载，node改为绝对路径/usr/local/bin/node\n- 补发2026-04-03（周五）和2026-04-04（周六）日记到飞书\n- 修复diary_image.py: node路径改为/usr/local/bin/node\n- 探照灯SKILL.md配置正确: chat_id=oc_62b0d7d187be614f8bdce954e5494358, accountId=spotlight\n\n### Credential对应关系（整理完成）\n- 财财: cli_a934dc5be7389bde → oc_672b6574c3477985a1a517f748d3dd4a（财财窗口）\n- 探照灯: cli_a948b11aeb395cc9 → oc_62b0d7d187be614f8bdce954e5494358（探照灯窗口）\n- 爪巴: cli_a9361beb52381bde → oc_1b17dd1b6f5e5ab3aeebc25d1140e5a9（爪巴窗口）\n- 研研: credential待确认 → 研研窗口（待确认）\n\n### 待确认\n- 研研窗口chat_id: `oc_19296660189ad93a04a260f9e928c880`（L提供）\n- 研研credential（APP_ID/APP_SECRET）: 待补充\n\n### karpathy LLM Wiki Pattern 学习\n- 核心思想: wiki不是每次重新发现知识，而是持久积累\n- 三层: raw sources → wiki → schema\n- 关键: 跟踪执行，不能是花架子\n- 试点方案: 以TradingAgents-CN为落地场景",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.603680",
+      "category": "knowledge",
+      "content": "## 08:00 karpathy LLM wiki pattern 学习\n\n### 来源\nhttps://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f\n\n### 核心模式\n三层：raw sources → wiki（LLM生成）→ schema（约定）\n三流程：Ingest（获取源）→ Query（查询）→ Lint（定期检查）\n\n### 关键洞察\nRAG 的缺陷：每次都重新发现知识，无积累\nWiki 的价值：交叉引用已存在，矛盾已标记，综合已完成\n\n### 与 L 讨论的落地计划\n以 TradingAgents-CN 投研系统为试点\n- 每次分析 → wiki 记录 → 打标签（待验证/已验证/已推翻）\n- 防止花架子：必须跟踪执行，不只是写文档",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.570575",
+      "category": "error",
+      "content": "## 08:00 日记问题修复\n\n### 问题\ndiary-skill 昨日（04-04）未触发，原因是：\n1. `diary-full` plist 原本只设了周一至周五（weekday 1-5），周六不跑\n2. 图片生成步骤失败：LaunchAgent 环境下找不到 `node` 命令\n\n### 修复\n- `diary-full.sh`：头部加 PATH 加载\n- `diary_image.py`：`node` 改为 `/usr/local/bin/node` 绝对路径\n- `diary-full.plist`：改为每天 00:10 触发（去掉 weekday 限制）\n- 已重启 LaunchAgent\n\n### 补发日记\n- 2026-04-03（周五）✅ 补发成功\n- 2026-04-04（周六）✅ 补发成功",
+      "tags": [],
+      "source": "2026-04-05.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.524544",
+      "category": "error",
+      "content": "## 🌙 Dream #10 — 2026-04-06\n\n**Scanned**: 3 files | **New**: 3 | **Updated**: 0 | **Total**: 356 entries\n\n### Changes\n- [New] OpenClaw商业化三重困境（Token成本+安全+自主性vs安全两难）\n- [New] Skills+RAG+Memory融合趋势——Coding Agent统一范式\n- [New] OpenClaw v2026.4.x核心架构更新（MCP-Scan集成、架构模块化）\n\n### Insights\n- 04-05和04-06连续两次Context压缩损失教训：每30分钟强制保存已成硬规则，但执行层面仍有疏漏——下午的工作进程文件记录密度需提升\n- diary skill的LaunchAgent PATH问题根因（04-02记录）与LaunchAgent符号链接问题（04-05）本质相同：launchd工作目录是/，所有相对路径脚本必挂\n\n### Stale Threads\n- karpathy wiki模式落地——stale for 2 days，试点TradingAgents-CN仍未启动\n- xmgx后台React受控输入——stale for 2天，browser tool方案已被判不适用，需换方案\n- 浏览器表单自动填报——stale for 5天，等L提供目标系统\n\n### Suggestions\n- tradingagents-CN LLM层配置等有效API key，karpathy wiki试点可先从知识积累流程设计开始（不等key）\n- xmgx类任务：opencli operate Chrome扩展方案（1Password冲突）换一个无扩展Chrome profile可尝试",
+      "tags": [],
+      "source": "dream-log.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.490717",
+      "category": "error",
+      "content": "## 🌙 Dream #2 — 2026-04-05\n\n**Scanned**: 3 files | **New**: 4 | **Updated**: 1 | **Total**: 350 entries\n\n### Changes\n- [New] karpathy LLM Wiki Pattern — 三层积累模式，试点TradingAgents-CN\n- [New] 探照灯跨agent协作教训 — SKILL.md目标参数必须同步\n- [New] cron任务每日触发规则 — 无\"仅工作日运行\"一说\n- [Updated] opencli-rs → autocli v0.2.4 — 50+命令，新增jimeng生图\n\n### Insights\n- 飞书图片发送问题彻底解决：6个agent各自独立Python脚本，image_type=message，100%稳定；根因是UUID文件名magic bytes检测不稳定\n- autocli工具链整合完成：jimeng生图（首选，不占浏览器）、doubao AI创作页（备选）；国际内容HN/bilibili/arxiv直接用autocli\n- diary-full LaunchAgent修复：加PATH加载、node改为绝对路径、去掉weekday限制每日触发\n\n### Stale Threads\n- TradingAgents-CN LLM层配置 — 5天未更新（等有效API key）\n- Excel自动化 — 5天未更新（等L发表格）\n- 浏览器表单自动填报 — 5天未更新（等L提供目标系统）\n\n### Suggestions\n- karpathy wiki模式应尽快落地：先在TradingAgents-CN试点，建立持久知识积累机制\n- xmgx后台React受控输入问题待解决：opencli operate Chrome扩展未连接（1Password冲突），可能需要换方案",
+      "tags": [],
+      "source": "dream-log.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.456602",
+      "category": "knowledge",
+      "content": "## 🌀 First Dream Report — 2026-04-01 19:18 UTC\n\n**Status**: First Dream Complete\n**Scanned**: 23 daily logs (2026-03-07 ~ 2026-04-01, spanning 25 days)\n**Unconsolidated before**: 23 files\n\n### Changes Made\n- Created `memory/procedures.md` — Tool workflows, format preferences, known limitations\n- Created `memory/archive.md` — Archive structure\n- Created `memory/episodes/` — Episode directory\n- Created `memory/index.json` — v3.0 schema\n- 23 daily logs marked `<!-- consolidated -->`\n\n### Key Insights Extracted\n- TradingAgents-CN launched (multi-agent A-share research framework)\n- Context loss incident on 2026-04-01 revealed LCM compaction unreliability\n- L's core principle: memory is a living model, not a recording\n- LaunchAgent > OpenClaw cron for script execution (isolated session limitation)\n- Finance bot App ID confirmed: cli_a934dc5be7389bde\n\n### Episodes Started\n- tradingagents-cn (active)\n- memory-crisis-2026-04-01 (resolved)\n\n---",
+      "tags": [],
+      "source": "dream-log.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.422436",
+      "category": "knowledge",
+      "content": "## 19:51 心跳检查\n\n**Gateway**: ✅ 运行中\n**VPN**: ✅ Clash Verge 运行中\n\n**仪表盘清理（今日完成）:**\n- Skills管理：删18条垃圾记录（定时检查/test）+ 准备删4个空列\n- 工作仪表盘：删17条垃圾记录（定时检查/测试）+ 准备删4个空列\n- 成长记录：字段正常，无需修改\n- 所有写入函数已加日期字段\n- dashboard_utils.py lark-cli路径已修复为绝对路径\n\n**规则更新：**\n- 不再写\"定时检查\"分类和文本\n- 发现遗漏才写入，以实际分类记录",
+      "tags": [],
+      "source": "2026-04-06.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.389128",
+      "category": "error",
+      "content": "## 18:30-18:39 对话精华（压缩前萃取）\n\n### 错误教训\n- **opencli src/ 软链接缺失**：~/.opencli/src/ 不存在导致所有 cli 命令报错 `Error: Cannot find module 'registry.js'`，根因是 npm 全局包用软链接指向不存在路径。修复：ln -sf ~/.npm-global/lib/node_modules/@jackwener/opencli/dist/src ~/.opencli/src\n- **Chrome代理黑盒**：OpenClaw Chrome profile（~/.openclaw/browser/openclaw/user-data）不读系统代理，必须加 --proxy-server 参数。教训：Chrome profile 的 proxy 配置和系统 defaults 完全独立\n- **jimeng cookie 失效**：即梦和豆包共享账号体系但 cookie 隔离，即梦的 cookie 里没有豆包的登录态，复制后自动跳转豆包。修复：接受跳转，在豆包AI创作页生成\n\n### 决策记录\n- **即梦降级为备选**：即梦有额度限制，豆包AI创作页无额度限制，默认用豆包\n- **写写发送目标确认**：chat_id = ou_ee46528a780a35d08862c4374a261503（OpenClaw bot发给L的用户ID，写写agent专用）\n- **MiniMax image-01 API**：旧Group API key对image-01无效（2049），需要独立类型API Key，暂缓\n\n### 技术方案\n- **完整生图链路**：browser tool(豆包AI创作) → CDP截图(Python websockets) → send_image_as_writer.py(飞书发送)\n- **doubao_gen_and_send.py**：整合脚本，已创建在 ~/.openclaw/scripts/\n- **L升级MiniMax套餐**：文本600次/5h，image-01 50次/天，TTS 4000次/天（均次日重置）\n\n### 重要教训\n- **写写agent无openclaw.json**：agents/writer/agent/ 目录下没有任何配置文件，auth-profiles.json也是空的。cron触发但无飞书身份，发送完全依赖 send_image_as_*.py 脚本（脚本内置AppSecret）\n\n### 18:40 MiniMax image-01 API 正确端点\n- 旧错：api.minimax.io → 返回 2049 invalid api key\n- **新对：api.minimaxi.com → 成功！直接返回图片 URL**\n- 模型：image-01，每天50次额度\n- 下载 URL：阿里云 OSS，可直接 curl 下载\n- **写脚本**：~/.openclaw/scripts/minimax_image_gen.py\n\n### message 工具发图片的坑\n- `message action=send path=\"/tmp/xxx.jpg\"` → 发的是**路径字符串**，不是图片\n- 正确方式：用 `filePath=\"/absolute/path\"` 参数，或者直接用 Python 脚本 `send_image_as_*.py`\n- **永远不要**用 `path` 参数发图片给 L",
+      "tags": [],
+      "source": "2026-04-06.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.357350",
+      "category": "task",
+      "content": "## 豆包生图链路（2026-04-06 验证）\n- 脚本：`~/.openclaw/scripts/doubao_gen_and_send.py`\n- 流程：browser tool → 豆包AI创作页 → CDP截图 → 发送飞书\n- 即梦因额度限制，已降级为备选",
+      "tags": [],
+      "source": "2026-04-06.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.324936",
+      "category": "knowledge",
+      "content": "## 11:30-15:53 Heartbeat\n- L 09:30 断网离线\n- Gateway/VPN/Context 均正常\n- 15:53 Heartbeat 无异常",
+      "tags": [],
+      "source": "2026-04-06.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.294663",
+      "category": "error",
+      "content": "## 09:00-09:30 工作日志\n\n### fieldtheory 书签系统\n- ✅ ft sync 已通（Chrome cookie 授权缓存有效）\n- ✅ Skill 已创建（~/.openclaw/skills/fieldtheory/）\n- ✅ Cron 每日 08:30 自动 sync\n- ✅ 75 条历史书签已导入飞书多维表格：https://my.feishu.cn/base/M7dYbWSSGafICCsHxTWcKWNgnpd（app_token: M7dYbWSSGafICCsHxTWcKWNgnpd）\n- 导入脚本：/tmp/import_ft_final.py（需先建 Bitable 和字段）\n\n### lark-cli --as user bug\n- **根因**：lark-cli v1.0.0，`--as user` 对 POST 请求直接 exit 1，无任何输出\n- **触发**：user token 过期后/某些情况下必然触发\n- **影响**：dashboard_utils 里的 `_org_post`（Skills/Work仪表盘）+ `write_skill_change` 全部失效\n- **解决**：改用 `--as bot`，L 给 bot（cli_a9361beb52381bde）三个仪表盘「可管理」权限\n- **修复位置**：~/.openclaw/workspace/skills/dashboard-sync/dashboard_utils.py\n\n### dashboard_utils 字段名错误\n- **根因**：Skills 表主字段是「文本」不是「内容摘要」，字段名一直写错\n- **发现**：cron 实际正常（用的\"文本\"），我对话里调用字段名错\n- **修复**：`write_skill_change` 改用 `_org_post`，统一用 bot 身份 + 正确字段名\n\n### L 离线\n- L 09:30 断网一段时间",
+      "tags": [],
+      "source": "2026-04-06.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.261584",
+      "category": "error",
+      "content": "## 08:12 fieldtheory → 飞书多维表格导入成功\n- fieldtheory sync 测试成功（75条书签，ft sync 正常）\n- **创建飞书多维表格**：`X 书签沉淀`（app_token: M7dYbWSSGafICCsHxTWcKWNgnpd）\n- **导入字段**：推文链接/内容摘要/作者昵称/作者简介/粉丝数/关注数/是否认证/发布时间/点赞/转发/评论/引用/书签数/媒体链接/外部链接/语言\n- **lark-cli bug 发现**：`--as user` 的 POST 请求全部 exit 1 且无输出，改用 `--as bot` 正常\n- **关键修复**：Python subprocess 调用 lark-cli 时，加 `stdin=subprocess.DEVNULL` 否则 lark-cli 读不到 `--data` 参数\n- 75条书签全部导入成功（176条有效记录，3条空测试记录）\n- Cron 每日 08:30 自动同步，后续新增书签可再次运行 import 脚本追加\n- **Bug发现**：lark-cli 批量 DELETE 时循环调用每次都解析 JSON 导致报错，改用 GET + Python 解析后批量删除",
+      "tags": [],
+      "source": "2026-04-06.md",
+      "confidence": "high"
+    },
+    {
+      "id": "20260406220000",
+      "timestamp": "2026-04-06T22:00:00.230579",
+      "category": "knowledge",
+      "content": "## 01:00 深度研究报告（深研 cron）\n- ClawHub 恶意技能供应链攻击（clawdhub campaign）\n- OpenClaw v2026.4.x 核心架构更新\n- Mem0 LOCOMO 基准——AI Agent Memory 评测\n- atoms_2026Q1.jsonl → ID 777/778/779\n<!-- consolidated -->",
+      "tags": [],
+      "source": "2026-04-06.md",
+      "confidence": "high"
+    },
     {
       "id": "20260406183939",
       "timestamp": "2026-04-06T18:39:39.364206",
