@@ -1,0 +1,36 @@
+interface:
+  display_name: "Spotlight Daily"
+  short_description: "探照灯资讯精选，从今日文章中精选2-3篇最具认知价值的生成报告"
+  default_prompt: "Use $spotlight-daily to read today's articles from /tmp/spotlight_articles.txt and generate a curated highlights report for L."
+  trigger_phrases:
+    - "探照灯"
+    - "资讯精选"
+    - "spotlight"
+    - "今日资讯"
+    - "文章精选"
+  exclusions:
+    - "日报生成"            # → daily-report-skill
+    - "盘前研报"            # → catalyst-scanner
+    - "财经早报"            # → daily-report-skill
+  outputs:
+    - "精选文章报告"
+    - "发送到探照灯窗口"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+  activation:
+    mode: "manual"
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source-plus-adapter"
+    generic: "neutral-source"

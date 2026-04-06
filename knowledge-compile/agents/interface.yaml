@@ -1,0 +1,36 @@
+interface:
+  display_name: "Knowledge Compile"
+  short_description: "下午知识整理，从探照灯文章提取知识写入 atoms 知识库"
+  default_prompt: "Use $knowledge-compile to read today's spotlight articles, extract valuable insights, and write key findings to the atoms knowledge base."
+  trigger_phrases:
+    - "知识整理"
+    - "知识入库"
+    - "下午整理"
+    - "knowledge-compile"
+    - "知识库写入"
+  exclusions:
+    - "探照灯资讯"          # → spotlight-daily
+    - "日报生成"            # → daily-report-skill
+    - "深度研究"            # → deep-research-night
+  outputs:
+    - "知识点写入 atoms_2026Q1.jsonl"
+    - "memory/YYYY-MM-DD.md 更新"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+  activation:
+    mode: "manual"
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source-plus-adapter"
+    generic: "neutral-source"

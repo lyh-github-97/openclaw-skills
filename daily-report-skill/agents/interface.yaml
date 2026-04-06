@@ -1,0 +1,41 @@
+interface:
+  display_name: "Daily Report Skill"
+  short_description: "生成AI要闻日报、财经早报、财经晚报等各类日报"
+  default_prompt: "Use $daily-report-skill to generate daily reports like AI news, finance morning report, or finance evening report, then send to Feishu."
+  trigger_phrases:
+    - "AI要闻"
+    - "财经早报"
+    - "财经晚报"
+    - "A股盘前"
+    - "探照灯"
+    - "每日荐股"
+    - "daily report"
+    - "生成日报"
+    - "盘前情报"
+    - "日报"
+  exclusions:
+    - "探照灯资讯精选"  # → spotlight-daily
+    - "盘前研报"          # → catalyst-scanner
+    - "深夜研究"          # → deep-research-night
+  outputs:
+    - "日报正文（markdown格式）"
+    - "发送到飞书"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+  activation:
+    mode: "manual"
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source-plus-adapter"
+    generic: "neutral-source"

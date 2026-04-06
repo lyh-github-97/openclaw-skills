@@ -1,0 +1,40 @@
+interface:
+  display_name: "Deep Research Night"
+  short_description: "深夜深度研究 AI/OpenClaw/Agent 领域最新内容，写入知识库 atoms"
+  default_prompt: "Use $deep-research-night to conduct deep research on AI, OpenClaw, and Agent topics from claw123.com, hengclaw.com, and Twitter/X, then write key findings to the atoms knowledge base."
+  trigger_phrases:
+    - "深度研究"
+    - "深夜研究"
+    - "deep research"
+    - "知识库写入"
+    - "atom"
+    - "深研"
+    - "claw123研究"
+  exclusions:
+    - "盘前研报"
+    - "财经早报"
+    - "资讯精选"
+    - "今日新闻"
+  outputs:
+    - "3个深度选题研究报告"
+    - "知识点写入 atoms_2026Q1.jsonl"
+    - "飞书推送研究摘要"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+  activation:
+    mode: "manual"
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source-plus-adapter"
+    generic: "neutral-source"

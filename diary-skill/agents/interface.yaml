@@ -1,0 +1,36 @@
+interface:
+  display_name: "Diary Skill"
+  short_description: "每日日记生成，AI生成有思考的日记并以精美图片发送到财财飞书窗口"
+  default_prompt: "Use $diary-skill to generate a thoughtful daily diary from yesterday's memory file and send it as a beautiful image to L via Feishu."
+  trigger_phrases:
+    - "生成日记"
+    - "写日记"
+    - "daily diary"
+    - "日记"
+  exclusions:
+    - "日报"                # → daily-report-skill
+    - "探照灯"              # → spotlight-daily
+    - "知识整理"            # → knowledge-compile
+  outputs:
+    - "日记正文（markdown）"
+    - "精美日记图片"
+    - "发送到财财飞书窗口"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+  activation:
+    mode: "manual"
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source-plus-adapter"
+    generic: "neutral-source"
