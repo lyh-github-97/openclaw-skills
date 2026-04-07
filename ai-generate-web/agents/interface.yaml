@@ -1,0 +1,11 @@
+interface:
+  display_name: "AI Generate Web"
+  short_description: "通过豆包AI创作/即梦/通义万相等工具生成图片/视频"
+  trigger_phrases:
+    - "生成图片"
+    - "生成海报"
+    - "生图"
+    - "ai-generate-web"
+  conditions:
+    requires_tools: "browser"
+    fallback_reason: "当 browser tool 不可用时，跳过图片生成流程"
