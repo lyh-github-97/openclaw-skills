@@ -1,6 +1,12 @@
 ---
+
+
 name: md2wechat
 description: Convert Markdown to WeChat Official Account HTML, inspect supported providers/themes/prompts, generate article images, create drafts, write with creator styles, and remove AI writing traces.
+conditions:
+  requires_env: WECHAT_APPID
+  fallback_reason: 无公众号凭证时跳过公众号推送
+
 homepage: https://github.com/geekjourneyx/md2wechat-skill
 metadata: {"clawdbot":{"emoji":"📝","requires":{"bins":["md2wechat"],"env":["WECHAT_APPID","WECHAT_SECRET"]},"install":[{"id":"brew","kind":"brew","formula":"geekjourneyx/tap/md2wechat","bins":["md2wechat"],"label":"Install md2wechat (brew)"},{"id":"go","kind":"go","module":"github.com/geekjourneyx/md2wechat-skill/cmd/md2wechat@latest","bins":["md2wechat"],"label":"Install md2wechat (go)"}]}}
 ---

@@ -4,6 +4,9 @@ description: >
   bb-browser 是 AI Agent 的浏览器自动化工具，通过 CDP 直连 Chrome。
   核心能力：126个 site adapter 直接获取结构化数据（Hacker News/GitHub/知乎等），
   无需登录态抓取。触发词：bb-browser、HackerNews、GitHub trending、arxiv搜索。
+conditions:
+  requires_tools: browser
+  fallback_reason: 当 browser tool 不可用时，跳过结构化数据获取
 ---
 
 # bb-browser Skill
@@ -92,7 +95,6 @@ bb-browser daemon start
 
 # daemon 配置位置
 ~/.bb-browser/daemon.json
-# auth token: f82dce8668dab28655b8e6ce50f93a69
 ```
 
 ## 与现有工具对比
@@ -106,6 +108,6 @@ bb-browser daemon start
 
 ## 适用场景
 
-- **信息获取首选 bb-browser**：HackerNews/arxiv/GitHub/B站/知乎 → 直接结构化输出
+- **信息获取首选 bb-browser**：HackerNews/arxiv/GitHub/知乎/B站 → 直接结构化输出
 - **autocli 备选**：Twitter/微博/小红书等平台
 - **web_search 兜底**：搜索引擎类、无 adapter 的网站

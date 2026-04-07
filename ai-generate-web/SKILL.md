@@ -1,25 +1,13 @@
-# ai-generate-web Skill
-
-通过豆包网页端实现文生图，绕过 MiniMax 套餐不支持生图的限制。
-
+---
+name: ai-generate-web
+description: >
+  通过豆包AI创作/即梦/通义万相等工具生成图片/视频，
+  支持多种生成器管理和 prompt 优化。
+conditions:
+  requires_tools: browser
+  fallback_reason: 当 browser tool 不可用时，跳过图片生成流程
 ---
 
-## 生图方式一（首选）：opencli-rs jimeng
-
-**命令行直接调用即梦，不占用浏览器，完全独立。**
-
-```bash
-opencli-rs jimeng generate "一只赛博朋克风格的机械猫"
-```
-
-**返回结果示例：**
-```
-| status | prompt | image_count | image_urls |
-| success | 一只赛博朋克风格的机械猫 | 4 | https://p26-dreamina-sign... |
-```
-
-**下载并发送飞书：**
-```bash
 # 下载（复制返回的第一个 URL）
 curl -sL -o /tmp/gen.webp "URL" --max-time 30
 
@@ -28,6 +16,10 @@ python3 ~/.openclaw/scripts/send_image_as_zuoba.py /tmp/gen.webp
 ```
 
 ---
+conditions:
+  requires_tools: browser
+  fallback_reason: 当 browser tool 不可用时，跳过图片生成流程
+
 
 ## 生图方式二（备选）：opencli doubao
 
@@ -68,6 +60,10 @@ python3 ~/.openclaw/scripts/send_image_as_zuoba.py /tmp/train.jpg
 ```
 
 ---
+conditions:
+  requires_tools: browser
+  fallback_reason: 当 browser tool 不可用时，跳过图片生成流程
+
 
 ## 生图方式二（备选）：opencli operate Chrome 自动化
 
@@ -107,6 +103,10 @@ python3 ~/.openclaw/scripts/send_image_as_zuoba.py /tmp/gen.jpg
 - 豆包登录失效：方式一会自动检测，方式二需手动重新登录
 
 ---
+conditions:
+  requires_tools: browser
+  fallback_reason: 当 browser tool 不可用时，跳过图片生成流程
+
 
 ## 能力清单
 
@@ -117,6 +117,10 @@ python3 ~/.openclaw/scripts/send_image_as_zuoba.py /tmp/gen.jpg
 | 通义千问 | 文生图 | 🔲 待测 | 待验证 |
 
 ---
+conditions:
+  requires_tools: browser
+  fallback_reason: 当 browser tool 不可用时，跳过图片生成流程
+
 
 ## ⚠️ 重要规则
 
@@ -130,6 +134,10 @@ python3 ~/.openclaw/scripts/send_image_as_zuoba.py /tmp/gen.jpg
 - 不要用 `open -a "Google Chrome"` 激活 L 已有的 Chrome 实例
 
 ---
+conditions:
+  requires_tools: browser
+  fallback_reason: 当 browser tool 不可用时，跳过图片生成流程
+
 
 ## 触发词
 
