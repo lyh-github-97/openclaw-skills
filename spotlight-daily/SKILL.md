@@ -32,12 +32,15 @@ URL：[链接]
 🔦 [第三篇...]
 ```
 
-### 3. 发送
-使用 message 工具发送到探照灯专属窗口。
-- 探照灯窗口 chat_id: oc_62b0d7d187be614f8bdce954e5494358
-- channel: feishu
-- accountId: spotlight（必须用 spotlight 应用身份发送）
-- action: send
+### 3. 保存报告
+将报告内容保存到 /tmp/spotlight_final.md
+
+### 4. 发送（用脚本，不走 message 工具）
+运行以下命令发送报告：
+```
+node /Users/liyaohua/.openclaw/scripts/spotlight_send.js oc_62b0d7d187be614f8bdce954e5494358 /tmp/spotlight_final.md
+```
+如果脚本输出包含"发送成功"，回复「完成」。
 
 ## 注意事项
 
