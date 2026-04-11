@@ -1,0 +1,27 @@
+interface:
+  display_name: "Launcher Guardian"
+  short_description: "LaunchAgent看护 — 每日自动巡检所有openclaw定时任务，自动诊断、自动修复、自动重触发，不请示"
+  default_prompt: "每天09:00/13:00/17:00/21:00自动巡检，调用 scripts/cron_guardian.py，发现问题立即修复并推送报告"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+  activation:
+    mode: "auto"
+    paths:
+      - "巡检定时任务"
+      - "检查定时任务"
+      - "launcher-guardian"
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source-plus-adapter"
+    generic: "neutral-source"

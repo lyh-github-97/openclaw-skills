@@ -1,0 +1,10 @@
+{
+  "name": "launcher-guardian",
+  "owner": "爪巴(主)",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "LaunchAgent看护 — 每日自动巡检所有openclaw定时任务，自动诊断修复，不请示直接执行",
+  "updated_at": "2026-04-11",
+  "review_cadence": "quarterly",
+  "maturity_tier": "scaffold"
+}
