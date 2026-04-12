@@ -1,0 +1,29 @@
+interface:
+  display_name: "自我反思"
+  short_description: "GEPA轻量版自进化 — 任务反思→缓冲区→批量合成→改进SOUL.md"
+  default_prompt: "出错时立即写反思到memory/reflect-buffer.md，每日cron调用batch_analyze.py合成建议"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+  activation:
+    mode: "auto"
+    paths:
+      - "反思"
+      - "回顾"
+      - "改进建议"
+      - "犯错了"
+      - "这个坑"
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source-plus-adapter"
+    generic: "neutral-source"
